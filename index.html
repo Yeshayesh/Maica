@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 13th Birthday Maica 💜</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Comic Sans MS', cursive;
+        background: linear-gradient(to bottom right, #c89bff, #9f6dff);
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Floating Sparkles */
+    .sparkle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(1); opacity: 0.8; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+    }
+
+    h1 {
+        margin-top: 20px;
+        font-size: 2em;
+        animation: fadeIn 2s ease;
+    }
+
+    .envelopes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 20px;
+    }
+
+    .envelope {
+        width: 120px;
+        height: 100px;
+        background: #b87bff;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        animation: bounce 1.5s infinite;
+        transition: transform 0.3s;
+    }
+
+    .envelope:hover {
+        transform: scale(1.1);
+    }
+
+    .envelope::after {
+        content: "💌";
+        font-size: 2.5em;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .big-envelope {
+        width: 150px;
+        height: 120px;
+    }
+
+    .message {
+        display: none;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 15px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 500px;
+        font-size: 1em;
+        animation: fadeIn 1s ease;
+        white-space: pre-line;
+    }
+
+    button {
+        background: #7b47ff;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin-top: 20px;
+        font-size: 1em;
+        border-radius: 8px;
+        cursor: pointer;
+        animation: pulse 2s infinite;
+    }
+
+    button:hover {
+        background: #622fd6;
+    }
+
+    .cake {
+        display: none;
+        margin-top: 30px;
+    }
+
+    .candles {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .candle {
+        width: 10px;
+        height: 40px;
+        background: yellow;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .flame {
+        width: 12px;
+        height: 12px;
+        background: orange;
+        border-radius: 50%;
+        position: absolute;
+        top: -12px;
+        left: -1px;
+        animation: flicker 0.3s infinite alternate;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    img {
+        max-width: 90%;
+        margin-top: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px white;
+        animation: fadeIn 2s ease;
+    }
+
+    .final-text {
+        font-size: 1.5em;
+        margin-top: 20px;
+        animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes flicker {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+</style>
+</head>
+<body>
+
+<!-- Floating Sparkles -->
+<script>
+for (let i = 0; i < 25; i++) {
+    let sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.background = ["white", "#ffccff", "#f5a9ff", "#ffe6ff"][Math.floor(Math.random()*4)];
+    sparkle.style.animationDuration = (6 + Math.random() * 5) + "s";
+    sparkle.style.animationDelay = Math.random() * 5 + "s";
+    document.body.appendChild(sparkle);
+}
+</script>
+
+<h1>💜 Happy 13th Birthday, Maica! 💜</h1>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Envelopes -->
+<div class="envelopes">
+    <div class="envelope" onclick="openEnvelope(0)"></div>
+    <div class="envelope" onclick="openEnvelope(1)"></div>
+    <div class="envelope" onclick="openEnvelope(2)"></div>
+    <div class="envelope big-envelope" onclick="openEnvelope(3)"></div>
+</div>
+
+<!-- Messages -->
+<div id="message0" class="message">Happy 13th birthday, Maica! 🎉 Imagine, one year pa lang tayong magkakilala pero parang ang dami na nating napagdaanan at memories together. I’m so happy na naging friend kita this year, and I’m really thankful na dumating ka sa life ko. Kahit hindi pa ganun katagal, ramdam ko na genuine yung friendship natin. 💖</div>
+
+<div id="message1" class="message">Ang saya mo kasama, and you always know how to make people smile. Kahit simpleng kwentuhan or tawanan lang, sobrang enjoy na. Thank you for being such a sweet, caring, and fun friend — you’ve made my year so much brighter dahil sa’yo. 🌸</div>
+
+<div id="message2" class="message">Ngayong teenager ka na, wish ko maging masaya ka palagi at ma-experience mo ang best sa teenage years mo. Sana mas marami pa tayong bonding moments and memories together sa mga susunod na taon. Happy birthday ulit, Maica — stay the amazing person you are! ✨🎂</div>
+
+<div id="message3" class="message">Maica, you are honestly one of the most amazing, caring, and loving friends I’ve ever met. Even though we’ve only known each other for a year, it already feels like we’ve been friends for so much longer. You have such a kind heart that always knows how to make people feel valued and appreciated. Kahit sa simpleng gestures or words mo, ramdam ko yung genuine care mo, and that’s something I truly treasure. You’re the kind of friend who never fails to check in, listen, and be there when someone needs you.
+
+You have this beautiful way of making people smile, even on their worst days. Your laugh is contagious, your energy is comforting, and your thoughtfulness makes such a big difference. You don’t just care for people — you make them feel like they matter, and that’s something rare and special. Every time we talk or spend time together, I’m reminded of how lucky I am to have you in my life. You’ve brought so much happiness into my year, and I truly appreciate every moment we’ve shared.
+
+I hope you know how much you mean to me and to the people around you. You’re a blessing, Maica, and I’m so grateful for your friendship. I’ll always admire your kindness, your genuine heart, and the way you make life brighter just by being yourself. Please never change, because the world — and my life — is so much better with you in it. 💖</div>
+
+<!-- Surprise Button -->
+<div id="surpriseBtn" class="hidden">
+    <button onclick="showCake()">Press for a Surprise &lt;3</button>
+</div>
+
+<!-- Cake -->
+<div id="cake" class="cake">
+    <h2>🎂 Blow the Candles 🎂</h2>
+    <div class="candles" id="candles"></div>
+</div>
+
+<!-- Second Surprise Button -->
+<div id="secondSurpriseBtn" class="hidden">
+    <button onclick="showPicture()">Press for a Surprise &lt;3</button>
+</div>
+
+<!-- Final Section -->
+<div id="finalSection" class="hidden">
+    <img src="Maica.jfif" alt="Maica Picture">
+    <div class="final-text">I LOVE YOU SO MUCH &lt;3</div>
+</div>
+
+<script>
+let opened = [false, false, false, false];
+let musicStarted = false;
+
+function openEnvelope(index) {
+    document.getElementById("message" + index).style.display = "block";
+    opened[index] = true;
+
+    if (!musicStarted) {
+        document.getElementById("bgMusic").play();
+        musicStarted = true;
+    }
+
+    if (opened.every(v => v)) {
+        document.querySelector(".envelopes").classList.add("hidden");
+        document.getElementById("surpriseBtn").classList.remove("hidden");
+    }
+}
+
+function showCake() {
+    document.getElementById("cake").style.display = "block";
+    const candlesDiv = document.getElementById("candles");
+    candlesDiv.innerHTML = "";
+    for (let i = 0; i < 13; i++) {
+        let c = document.createElement("div");
+        c.classList.add("candle");
+        let flame = document.createElement("div");
+        flame.classList.add("flame");
+        c.appendChild(flame);
+        c.onclick = () => {
+            flame.remove();
+            checkCandles();
+        };
+        candlesDiv.appendChild(c);
+    }
+}
+
+function checkCandles() {
+    if (document.querySelectorAll(".flame").length === 0) {
+        document.getElementById("secondSurpriseBtn").classList.remove("hidden");
+    }
+}
+
+function showPicture() {
+    document.getElementById("finalSection").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
